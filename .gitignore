@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# Test coverage
+coverage/
+*.lcov
+.nyc_output
+
+# Temp
+tmp/
+temp/
+*.tmp
+
+# MongoDB
+*.mongodb
+
+# Package manager
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnpm-debug.log
+
+# Misc
+.cache
+.parcel-cache
+.next
+.nuxt
+.vuepress/dist
+*.tsbuildinfo
