@@ -28,7 +28,6 @@ A production-ready, enterprise-grade NestJS backend application with MongoDB, fe
 - ✅ **ESLint & Prettier** - Code quality and formatting
 - ✅ **Husky & Lint-Staged** - Pre-commit hooks
 - ✅ **Conventional Commits** - Commit message linting
-- ✅ **Docker Support** - Multi-stage production builds
 - ✅ **E2E Testing** - Comprehensive test coverage
 - ✅ **Unit Testing** - Jest with mocking utilities
 
@@ -36,8 +35,7 @@ A production-ready, enterprise-grade NestJS backend application with MongoDB, fe
 
 - **Node.js** >= 20.x
 - **npm** >= 9.x
-- **MongoDB** >= 7.x (or use Docker Compose)
-- **Docker** (optional, for containerized development)
+- **MongoDB** >= 7.x (install MongoDB Community Server)
 
 ## 🛠️ Installation
 
@@ -70,16 +68,19 @@ JWT_SECRET=your-secret-key-change-in-production
 JWT_REFRESH_SECRET=your-refresh-secret-key-change-in-production
 ```
 
-### 4. Start MongoDB (using Docker Compose)
+### 4. Start MongoDB
 
-```bash
-docker-compose up -d mongodb
-```
+**Install MongoDB Community Server:**
+1. Download from https://www.mongodb.com/try/download/community
+2. Run the installer and select "Install MongoDB as a Service"
+3. Start the service:
 
-Or use the full stack including Redis and Mongo Express:
+```powershell
+# Start MongoDB service
+net start MongoDB
 
-```bash
-docker-compose up -d
+# Verify MongoDB is running
+netstat -an | findstr :27017
 ```
 
 ### 5. Run the application
@@ -223,24 +224,7 @@ npm run format
 npm run format:check
 ```
 
-## 🐳 Docker Deployment
-
-### Build Docker image
-```bash
-docker build -t hubblu-backend .
-```
-
-### Run with Docker Compose
-```bash
-docker-compose up -d
-```
-
-Services included:
-- **MongoDB** (port 27017)
-- **Redis** (port 6379)
-- **Mongo Express** (port 8081) - MongoDB web UI
-
-## 📊 Monitoring & Logging
+##  Monitoring & Logging
 
 ### Logging
 Logs are stored in the `logs/` directory:
