@@ -45,7 +45,7 @@ export class AuthController {
     @ApiOperation({ summary: 'Refresh access token' })
     @ApiResponse({ status: 200, description: 'Token successfully refreshed' })
     @ApiResponse({ status: 401, description: 'Invalid refresh token' })
-    async refreshTokens(@Body() refreshTokenDto: RefreshTokenDto, @Req() req) {
+    async refreshTokens(@Body() refreshTokenDto: RefreshTokenDto, @Req() req: any) {
         // In a real implementation, you'd extract the user ID from the refresh token
         // For now, we'll assume it's passed in the request
         return this.authService.refreshTokens(req.user?.id, refreshTokenDto.refreshToken);

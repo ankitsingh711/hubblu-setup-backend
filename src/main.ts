@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import * as helmet from 'helmet';
+import helmet from 'helmet';
 import { AppModule } from './app.module';
 import { LoggerService } from './common/logger/logger.service';
 
@@ -47,9 +47,9 @@ async function bootstrap() {
     // Swagger documentation
     if (configService.get<boolean>('swagger.enabled')) {
         const config = new DocumentBuilder()
-            .setTitle(configService.get<string>('swagger.title'))
-            .setDescription(configService.get<string>('swagger.description'))
-            .setVersion(configService.get<string>('swagger.version'))
+            .setTitle(configService.get<string>('swagger.title')!)
+            .setDescription(configService.get<string>('swagger.description')!)
+            .setVersion(configService.get<string>('swagger.version')!)
             .addBearerAuth()
             .addTag('Authentication', 'Authentication and authorization endpoints')
             .addTag('Users', 'User management endpoints')
@@ -70,7 +70,7 @@ async function bootstrap() {
     }
 
     // Start server
-    const port = configService.get<number>('port');
+    const port = configService.get<number>('port')!;
     await app.listen(port);
 
     logger.log(`🚀 Application is running on: http://localhost:${port}/${apiPrefix}/${apiVersion}`, 'Bootstrap');

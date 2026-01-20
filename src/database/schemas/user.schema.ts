@@ -62,7 +62,7 @@ UserSchema.virtual('fullName').get(function (this: UserDocument) {
 // Ensure virtuals are included in JSON
 UserSchema.set('toJSON', {
     virtuals: true,
-    transform: function (doc, ret) {
+    transform: function (doc, ret: Record<string, any>) {
         delete ret.password;
         delete ret.refreshToken;
         delete ret.__v;
@@ -72,7 +72,7 @@ UserSchema.set('toJSON', {
 
 UserSchema.set('toObject', {
     virtuals: true,
-    transform: function (doc, ret) {
+    transform: function (doc, ret: Record<string, any>) {
         delete ret.password;
         delete ret.refreshToken;
         delete ret.__v;

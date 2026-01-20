@@ -22,7 +22,7 @@ describe('UsersService', () => {
 
     const mockConfigService = {
         get: jest.fn((key: string, defaultValue?: any) => {
-            const config = {
+            const config: Record<string, any> = {
                 'security.bcryptSaltRounds': 10,
             };
             return config[key] || defaultValue;

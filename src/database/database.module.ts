@@ -16,7 +16,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
                     connection.on('connected', () => {
                         console.log('✅ MongoDB connected successfully');
                     });
-                    connection.on('error', (error) => {
+                    connection.on('error', (error: any) => {
                         console.error('❌ MongoDB connection error:', error);
                     });
                     connection.on('disconnected', () => {

@@ -44,7 +44,7 @@ export const validationSchema = Joi.object({
 
 export default () => ({
     env: process.env.NODE_ENV || 'development',
-    port: parseInt(process.env.PORT, 10) || 3000,
+    port: parseInt(process.env.PORT || '3000', 10),
     apiPrefix: process.env.API_PREFIX || 'api',
     apiVersion: process.env.API_VERSION || 'v1',
 
@@ -61,8 +61,8 @@ export default () => ({
     },
 
     throttle: {
-        ttl: parseInt(process.env.THROTTLE_TTL, 10) || 60,
-        limit: parseInt(process.env.THROTTLE_LIMIT, 10) || 100,
+        ttl: parseInt(process.env.THROTTLE_TTL || '60', 10),
+        limit: parseInt(process.env.THROTTLE_LIMIT || '100', 10),
     },
 
     logging: {
@@ -82,6 +82,6 @@ export default () => ({
     },
 
     security: {
-        bcryptSaltRounds: parseInt(process.env.BCRYPT_SALT_ROUNDS, 10) || 10,
+        bcryptSaltRounds: parseInt(process.env.BCRYPT_SALT_ROUNDS || '10', 10),
     },
 });
